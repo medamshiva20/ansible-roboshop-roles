@@ -12,3 +12,18 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: app-setup
+
+- name: install depencies
+     ansible.builtin.command: npm install
+     args:
+      chdir: /app
+
+- name: Load schema(catalogue data)
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: load-mongo-schema.yaml
+
+- name: Start Application
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: systemd-setup
