@@ -14,9 +14,9 @@
    tasks_from: app-setup
 
 - name: install depencies
-     ansible.builtin.command: npm install
-     args:
-      chdir: /app
+  ansible.builtin.command: npm install
+  args:
+   chdir: /app
 
 - name: Load schema(catalogue data)
   ansible.builtin.import_role:
