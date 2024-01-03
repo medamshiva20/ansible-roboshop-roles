@@ -33,7 +33,7 @@
 
 - name: "download {{component}} artifact"
   ansible.builtin.get_rul:
-   url: https://roboshop-builds.s3.amazonaws.com/{{component}}.zip
+   url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
    dest: /tmp
 
 - name: extract {{component}} artifact
