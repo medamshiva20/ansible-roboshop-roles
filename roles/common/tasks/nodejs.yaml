@@ -1,0 +1,9 @@
+- name: setup NPM source
+  ansible.builin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+
+- name: Install NodeJs
+  ansible.builtin.yum:
+   name: nodejs
+   state: installed
+   disable_gpg_check: true
+   update_cache: yes
