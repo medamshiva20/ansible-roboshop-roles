@@ -28,7 +28,7 @@
 - name: create /app directory if not exists
   ansible.builtin.file:
    name: /app
-   state: touch
+   state: directory
   when: directory.stat.exists == False
 
 - name: download {{component}} artifact
