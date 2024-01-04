@@ -10,7 +10,7 @@
 - name: Install redis package
   ansible.builtin.yum:
    name: redis
-   state: instaaled
+   state: installed
 
 - name: start and enable redis service
   ansible.builtin.service:
