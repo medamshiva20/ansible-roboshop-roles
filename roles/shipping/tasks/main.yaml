@@ -1,0 +1,29 @@
+- name: Install Maven
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: maven-setup
+
+- name: Setup Application
+  ansible.builtin.copy:
+   name: common
+   tasks_from: app-setup
+
+- name: Install depencies
+  ansible.builtin.commad: mvn clean package
+  args:
+   chdir: /app
+
+- name: rename jar file
+  ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+  args:
+   chdir: /app
+
+- name: Load mysql schema(shipping data)
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: load-mysql-schema
+
+- name: Start Application
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: systemd-setup
