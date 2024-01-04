@@ -14,7 +14,7 @@ cart.sivadevops.website
 mysql.sivadevops.website
 [shipping]
 shipping.sivadevops.website
-[robbitmq]
-robbitmq.sivadevops.website
+[rabbitmq]
+rabbitmq.sivadevops.website
 [payment]
 payment.sivadevops.website
