@@ -1,0 +1,28 @@
+- name: Configure rabbitmq yum repos
+  ansible.builtin.shell: "{{item}}"
+  loop:
+   - "curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash"
+   - "curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash"
+
+- name: Install rabbitmq package
+  ansible.builtin.yum:
+   name: rabbitmq-server
+   state: installed
+
+- name: Start and Enable rabbitmq server
+  ansible.builtin.service:
+   name: rabbitmq-server
+   state: started
+   enabled: true
+
+- name: |-
+    Add user to server and assign full access control on / vhost.
+    The user might have permission rules for other vhost but you don't care.
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
