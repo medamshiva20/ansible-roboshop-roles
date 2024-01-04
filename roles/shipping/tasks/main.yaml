@@ -4,7 +4,7 @@
    tasks_from: maven-setup
 
 - name: Setup Application
-  ansible.builtin.copy:
+  ansible.builtin.import_role:
    name: common
    tasks_from: app-setup
 
