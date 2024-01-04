@@ -1,5 +1,5 @@
 CATALOG_HOST: catalogue.sivadevops.website
 USER_HOST: user.sivadevops.website
 CART_HOST: cart.sivadevops.website
-SHIPPING_HOS: shipping.sivadevops.website
+SHIPPING_HOST: shipping.sivadevops.website
 PAYMENT_HOST: payment.sivadevops.website
