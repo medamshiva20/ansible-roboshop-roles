@@ -1,5 +1,6 @@
 [mongodb]
-mongodb.sivadevops.website
+172.31.34.227
+#mongodb.sivadevops.website
 [catalogue]
 catalogue.sivadevops.website
 [web]
